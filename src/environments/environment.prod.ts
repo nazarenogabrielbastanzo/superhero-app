@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  accessToken: '4545115628845402'
 };
