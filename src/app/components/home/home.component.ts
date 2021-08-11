@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   characterResults: any[] = [];
   heroName: string = '';
+  errorMessage: string = '';
 
   constructor(
     private reqServ: RequestsService
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.reqServ.getHero(561)
       .then((response: any) => {
-        console.log(response);
+        // console.log(response);
       })
       .catch((error: any) => {
         console.log(error);
@@ -29,16 +30,28 @@ export class HomeComponent implements OnInit {
   searchCharacter(event: any, characterName: string) {
     event.preventDefault();
     this.characterResults = [];
-    this.reqServ.searchHero(characterName)
+    this.reqServ.searchHero(characterName.trim())
       .then((response: any) => {
-        console.log(response);
-        for (let result of response.data.results) {
-          this.characterResults.push(result);
-        };
+        // console.log(response);
+        if (response.data.response === 'success') {
+          for (let result of response.data.results) {
+            this.characterResults.push(result);
+          };
+        }
+        if (response.data.response === 'error') {
+          // console.log(response.data.error);
+          this.errorMessage = response.data.error;
+        }
       })
       .catch((error: any) => {
-        console.log(error);
+        // console.log(error);       
       });
+  }
+
+  cleanResults() {
+    this.characterResults = [];
+    this.heroName = '';
+    this.errorMessage = '';
   }
 
 }
