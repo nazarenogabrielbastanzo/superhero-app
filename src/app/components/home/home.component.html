@@ -1,1 +1,27 @@
-<p>home works!</p>
+<div class="container">
+    <h1 class="display-4">Super Heroes</h1>
+    <form>
+        <p>
+            <label for="characterName">Name:</label>
+            <input
+                type="search"
+                name="characterName"
+                placeholder="Character name..."
+                #characterName
+                [(ngModel)]="heroName"
+            >
+            <span>
+                Searching <b>{{ heroName }}</b>...
+            </span>
+        </p>
+        <p>
+            <button (click)="searchCharacter($event, characterName.value); characterName.value = ''">Search</button>
+        </p>
+    </form>
+    <br>
+    <ul>
+        <li *ngFor="let result of characterResults">
+            {{ result.id }} {{ result.name }}
+        </li>
+    </ul>
+</div>
