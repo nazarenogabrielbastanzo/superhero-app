@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   errorMessage: string = '';
 
   constructor(
-    private reqServ: RequestsService
+    private reqServ: RequestsService,
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +25,14 @@ export class HomeComponent implements OnInit {
       .catch((error: any) => {
         console.log(error);
       });
+
+    // this.reqServ.getUsers()
+    //   .then((response: any) => {
+    //     console.log(response);
+    //   })
+    //   .catch((error: any) => {
+    //     console.log(error);
+    //   });
   }
 
   searchCharacter(event: any, characterName: string) {
@@ -44,7 +52,7 @@ export class HomeComponent implements OnInit {
         }
       })
       .catch((error: any) => {
-        // console.log(error);       
+        // console.log(error);
       });
   }
 
