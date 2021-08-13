@@ -48,7 +48,7 @@ export class RequestsService {
       }
     })
     .then((response: any) => {
-      console.log(response);
+      // console.log(response);
       // store token in localStorage
       localStorage.setItem(TOKEN, response.data.token);
       this.router.navigate(['/home']);
@@ -63,6 +63,14 @@ export class RequestsService {
     const current = localStorage.getItem(TOKEN);
     if (!current) {
       localStorage.setItem(TOKEN, '');
+    }
+  }
+
+  clearStorage(): void {
+    try {
+      localStorage.clear();
+    } catch (error) {
+      console.log('Error cleaning localStorage', error);
     }
   }
 }

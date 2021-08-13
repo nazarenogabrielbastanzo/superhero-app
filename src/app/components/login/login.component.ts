@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.reqServ.login('challenge@alkemy.org', 'react');
+    this.reqServ.login(this.email, this.password);
   }
 
 }

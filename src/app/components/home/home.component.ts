@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RequestsService } from '../../services/requests.service';
 
 @Component({
@@ -15,16 +16,17 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private reqServ: RequestsService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
-    this.reqServ.getHero(561)
-      .then((response: any) => {
-        // console.log(response);
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
+    // this.reqServ.getHero(561)
+    //   .then((response: any) => {
+    //     // console.log(response);
+    //   })
+    //   .catch((error: any) => {
+    //     console.log(error);
+    //   });
 
     // this.reqServ.getUsers()
     //   .then((response: any) => {
@@ -60,6 +62,10 @@ export class HomeComponent implements OnInit {
     this.characterResults = [];
     this.heroName = '';
     this.errorMessage = '';
+  }
+
+  logout() {
+    this.reqServ.clearStorage();
   }
 
 }
