@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import axios from 'axios';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 const TOKEN = 'token';
 
@@ -48,14 +49,19 @@ export class RequestsService {
       }
     })
     .then((response: any) => {
-      // console.log(response);
+      console.log(response);
       // store token in localStorage
       localStorage.setItem(TOKEN, response.data.token);
       this.router.navigate(['/home']);
     })
     .catch((error: any) => {
       console.log(error);
-      this.router.navigate(['/login']);
+      // show alert
+      Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'Unauthorized Access'
+      });
     });
   }
 
