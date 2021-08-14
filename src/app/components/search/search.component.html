@@ -1,0 +1,40 @@
+<div class="my-5">
+  <a [routerLink]="['/login']" (click)="logout()">Logout</a>
+  <form>
+      <p>
+          <label
+              for="characterName"
+              class="mx-1"
+          >Name:</label>
+          <input
+              type="search"
+              name="characterName"
+              placeholder="Character name..."
+              #characterName
+              [(ngModel)]="heroName"
+              autocomplete="off"
+              class="mx-1"
+          >
+          <button
+              (click)="searchCharacter($event, characterName.value); characterName.value = ''"
+              class="btn btn-outline-primary mx-1"
+          >Search</button>
+          <button
+              (click)="cleanResults()"
+              class="btn btn-outline-danger"
+          >Clean</button>
+          <span *ngIf="heroName" style="display: block;">
+              Searching <b>{{ heroName }}</b>...
+          </span>
+          <span *ngIf="errorMessage && !heroName" style="display: block;" class="text-danger">
+              {{ errorMessage }}
+          </span>
+      </p>
+  </form>
+  <br>
+  <ul>
+      <li *ngFor="let result of characterResults" class="my-3">
+          <span class="mx-3">{{ result.id }}: {{ result.name }} ({{ result.biography.alignment }})</span> <img [src]="result.image.url" style="width: 100px; border-radius: 10px;">
+      </li>
+  </ul>
+</div>
