@@ -5,30 +5,30 @@
       <div class="mb-3 row">
         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
-            <input
-                type="email"
-                class="form-control"
-                name="inputEmail"
-                [(ngModel)]="email"
-            />
+          <input
+            type="email"
+            class="form-control"
+            name="inputEmail"
+            [(ngModel)]="email"
+          />
         </div>
       </div>
       <div class="mb-3 row">
         <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
         <div class="col-sm-10">
         <input
-            type="password"
-            class="form-control"
-            name="inputPassword"
-            [(ngModel)]="password"
+          type="password"
+          class="form-control"
+          name="inputPassword"
+          [(ngModel)]="password"
         />
         </div>
       </div>
       <div class="text-center">
         <button
-            type="submit"
-            class="btn btn-outline-primary"
-            (click)="login()"
+          type="submit"
+          class="btn btn-outline-primary"
+          (click)="login()"
         >Login</button>
       </div>
     </form>
