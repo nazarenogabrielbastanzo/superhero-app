@@ -1,19 +1,20 @@
 <div class="row">
   <div class="col">
     <div class="card" style="width: 18rem;">
-      <img [src]="dataEntrante.data.image.url" class="card-img-top" [alt]="dataEntrante.data.name">
+      <img [src]="incomingData.data.image.url" class="card-img-top" [alt]="incomingData.data.name">
       <div class="card-body">
-        <h5 class="card-title">Name: {{ dataEntrante.data.name }}</h5>
+        <h5 class="card-title">Name: {{ incomingData.data.name }}</h5>
         <h5 class="card-title">Powerstats:</h5>
         <ul>
-          <li>Combat: {{ dataEntrante.data.powerstats.combat }}</li>
-          <li>Durability: {{ dataEntrante.data.powerstats.durability }}</li>
-          <li>Intelligence: {{ dataEntrante.data.powerstats.intelligence }}</li>
-          <li>Power: {{ dataEntrante.data.powerstats.power }}</li>
-          <li>Speed: {{ dataEntrante.data.powerstats.speed }}</li>
-          <li>Strength: {{ dataEntrante.data.powerstats.strength }}</li>
+          <li>Combat: {{ incomingData.data.powerstats.combat }}</li>
+          <li>Durability: {{ incomingData.data.powerstats.durability }}</li>
+          <li>Intelligence: {{ incomingData.data.powerstats.intelligence }}</li>
+          <li>Power: {{ incomingData.data.powerstats.power }}</li>
+          <li>Speed: {{ incomingData.data.powerstats.speed }}</li>
+          <li>Strength: {{ incomingData.data.powerstats.strength }}</li>
         </ul>
-        <button class="btn btn-outline-info" (click)="seeDetails(dataEntrante.data.id)">Details</button>
+        <button class="btn btn-outline-info" (click)="seeDetails(incomingData.data.id)">Details</button>
+        <button class="btn btn-outline-danger" (click)="deleteHero(incomingData.data.id)">Delete Hero</button>
       </div>
     </div>
   </div>

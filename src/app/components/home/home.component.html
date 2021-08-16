@@ -3,7 +3,7 @@
   <hr>
   <div class="grid">
     <div *ngFor="let goodHero of goodTeam; let i = index" class="grid">
-      <app-card *ngIf="i < 3" [dataEntrante]="goodHero"></app-card>
+      <app-card *ngIf="i < 3" [incomingData]="goodHero"></app-card>
     </div>
   </div>
   <hr>
@@ -11,7 +11,7 @@
   <hr>
   <div class="grid">
     <div *ngFor="let badHero of badTeam; let i = index" class="grid">
-      <app-card *ngIf="i < 3" [dataEntrante]="badHero"></app-card>
+      <app-card *ngIf="i < 3" [incomingData]="badHero"></app-card>
     </div>
   </div>
 </div>
