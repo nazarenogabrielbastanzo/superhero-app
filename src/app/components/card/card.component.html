@@ -1,11 +1,18 @@
 <div class="row">
   <div class="col">
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img [src]="dataEntrante.data.image.url" class="card-img-top" [alt]="dataEntrante.data.name">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">Name: {{ dataEntrante.data.name }}</h5>
+        <h5 class="card-title">Powerstats:</h5>
+        <ul>
+          <li>Combat: {{ dataEntrante.data.powerstats.combat }}</li>
+          <li>Durability: {{ dataEntrante.data.powerstats.durability }}</li>
+          <li>Intelligence: {{ dataEntrante.data.powerstats.intelligence }}</li>
+          <li>Power: {{ dataEntrante.data.powerstats.power }}</li>
+          <li>Speed: {{ dataEntrante.data.powerstats.speed }}</li>
+          <li>Strength: {{ dataEntrante.data.powerstats.strength }}</li>
+        </ul>
       </div>
     </div>
   </div>
