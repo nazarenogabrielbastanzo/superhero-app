@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { CardComponent } from './components/card/card.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CardComponent } from './components/card/card.component';
     LoginComponent,
     HeaderComponent,
     SearchComponent,
-    CardComponent
+    CardComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

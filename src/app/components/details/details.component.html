@@ -1,0 +1,41 @@
+<div class="my-5" *ngIf="hero">
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img [src]="hero.data.image.url" class="card-img-top" [alt]="hero.data.name">
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Name: {{ hero.data.name }}</h5>
+          <h5 class="card-title">Powerstats:</h5>
+          <ul>
+            <li><b>Combat:</b> {{ hero.data.powerstats.combat }}</li>
+            <li><b>Durability:</b> {{ hero.data.powerstats.durability }}</li>
+            <li><b>Intelligence:</b> {{ hero.data.powerstats.intelligence }}</li>
+            <li><b>Power:</b> {{ hero.data.powerstats.power }}</li>
+            <li><b>Speed:</b> {{ hero.data.powerstats.speed }}</li>
+            <li><b>Strength:</b> {{ hero.data.powerstats.strength }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Appearance:</h5>
+          <ul>
+            <li><b>Weight:</b> {{ hero.data.appearance.weight[1] }}</li>
+            <li><b>Height:</b> {{ hero.data.appearance.height[1] }}</li>
+            <li><b>Full name:</b> {{ hero.data.biography["full-name"] }}</li>
+            <li><b>Alias:</b> {{ hero.data.biography.aliases[0] }}</li>
+            <li><b>Eye color:</b> {{ hero.data.appearance["eye-color"] }}</li>
+            <li><b>Hair color:</b> {{ hero.data.appearance["hair-color"] }}</li>
+            <li><b>Workplace:</b> {{ hero.data.work.base }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

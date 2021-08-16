@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DetailsComponent } from './components/details/details.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SearchComponent } from './components/search/search.component';
@@ -16,6 +17,12 @@ const routes: Routes = [
     component: SearchComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'details/:id',
+    component: DetailsComponent,
+    canActivate: [AuthGuard]
+  }
+  ,
   {
     path: 'login',
     component: LoginComponent
