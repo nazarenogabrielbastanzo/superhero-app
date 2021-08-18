@@ -52,6 +52,11 @@ export class RequestsService {
       console.log(response);
       // store token in localStorage
       localStorage.setItem(TOKEN, response.data.token);
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Logged In'
+      });
       this.router.navigate(['/home']);
     })
     .catch((error: any) => {
