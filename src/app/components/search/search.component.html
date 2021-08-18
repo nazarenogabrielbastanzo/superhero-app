@@ -32,9 +32,13 @@
       </p>
   </form>
   <br>
-  <ul>
-      <li *ngFor="let result of characterResults" class="my-3">
-          <span class="mx-3">{{ result.id }}: {{ result.name }} ({{ result.biography.alignment }})</span> <img [src]="result.image.url" style="width: 100px; border-radius: 10px;">
-      </li>
-  </ul>
+  <div class="row">
+    <div class="col" *ngFor="let result of characterResults">
+      <div class="card" style="width: 18rem;">
+        <img [src]="result.image.url" alt="result.name" class="card-img-top">
+        <h5 class="card-title">Name: {{ result.name }}</h5>
+        <button type="button" class="btn btn-outline-info" (click)="addCharacter(result)">Add Character</button>
+      </div>
+    </div>
+  </div>
 </div>

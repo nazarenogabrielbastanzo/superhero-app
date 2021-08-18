@@ -55,4 +55,9 @@ export class SearchComponent implements OnInit {
       text: 'Logged Out'
     });
   }
+
+  addCharacter(character: any) {
+    console.log(character);
+    // Continue
+  }
 }
