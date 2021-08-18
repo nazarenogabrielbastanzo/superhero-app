@@ -11,9 +11,7 @@ const TOKEN = 'token';
 })
 export class RequestsService {
 
-  // usersURL = 'https://my-json-server.typicode.com/nazarenogabrielbastanzo/superhero-app/users';
-
-  tokenURL = 'http://challenge-react.alkemy.org/';
+  private tokenURL = 'http://challenge-react.alkemy.org/';
 
   constructor(
     private router: Router
@@ -21,34 +19,25 @@ export class RequestsService {
     this.initializeStorage();
   }
 
-  getHero(characterId: number): Promise<any> {
+  public getHero(characterId: number): Promise<any> {
     return axios.get(`/api/${environment.accessToken}/${characterId}`);
   }
 
-  searchHero(heroName: string): Promise<any> {
+  public searchHero(heroName: string): Promise<any> {
     return axios.get(`/api/${environment.accessToken}/search/${heroName}`);
   }
 
-  // getUsers(): Promise<any> {
-  //   return axios.get(this.usersURL);
-  // }
-
-  // getUser(userId: number): Promise<any> {
-  //   return axios.get(`${this.usersURL}/${userId}`);
-  // }
-
-  // axios.post(url[, data[, config]])
-  login(userEmail: string, userPassword: string): Promise<any> {
+  public async login(userEmail: string, userPassword: string): Promise<any> {
     axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
-    return axios({
-      method: 'post',
-      url: this.tokenURL,
-      data: {
-        email: userEmail,
-        password: userPassword
-      }
-    })
-    .then((response: any) => {
+    try {
+      const response = await axios({
+        method: 'post',
+        url: this.tokenURL,
+        data: {
+          email: userEmail,
+          password: userPassword
+        }
+      });
       console.log(response);
       // store token in localStorage
       localStorage.setItem(TOKEN, response.data.token);
@@ -58,8 +47,7 @@ export class RequestsService {
         text: 'Logged In'
       });
       this.router.navigate(['/home']);
-    })
-    .catch((error: any) => {
+    } catch (error) {
       console.log(error);
       // show alert
       Swal.fire({
@@ -67,7 +55,7 @@ export class RequestsService {
         title: 'Error!',
         text: 'Unauthorized Access'
       });
-    });
+    }
   }
 
   private initializeStorage(): void {
@@ -77,7 +65,7 @@ export class RequestsService {
     }
   }
 
-  clearStorage(): void {
+  public clearStorage(): void {
     try {
       localStorage.clear();
     } catch (error) {
