@@ -47,15 +47,6 @@ export class SearchComponent implements OnInit {
     this.errorMessage = '';
   }
 
-  logout() {
-    this.reqServ.clearStorage();
-    Swal.fire({
-      icon: 'success',
-      title: 'Success!',
-      text: 'Logged Out'
-    });
-  }
-
   addCharacter(character: any) {
     console.log(character);
     // Continue

@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { CardComponent } from './components/card/card.component';
 import { DetailsComponent } from './components/details/details.component';
+import { SessionComponent } from './components/session/session.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DetailsComponent } from './components/details/details.component';
     HeaderComponent,
     SearchComponent,
     CardComponent,
-    DetailsComponent
+    DetailsComponent,
+    SessionComponent
   ],
   imports: [
     BrowserModule,
