@@ -1,7 +1,10 @@
 <app-session></app-session>
 <div class="my-5">
   <h2 class="text-center my-5">Super Heroes Team ({{ team.length }} Members)</h2>
-  <app-powerstats [team]="team" *ngIf="team.length"></app-powerstats>
+  <div class="grid">
+    <app-powerstats [team]="team" *ngIf="team.length"></app-powerstats>
+    <app-averages [team]="team" *ngIf="team.length"></app-averages>
+  </div>
   <h3 class="text-center my-5">Team Members - Alignment: Good ({{ goodTeam.length }} Members)</h3>
   <div *ngIf="goodTeam.length">
     <app-powerstats [team]="goodTeam"></app-powerstats>

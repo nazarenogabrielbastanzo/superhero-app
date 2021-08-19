@@ -13,6 +13,7 @@ import { CardComponent } from './components/card/card.component';
 import { DetailsComponent } from './components/details/details.component';
 import { SessionComponent } from './components/session/session.component';
 import { PowerstatsComponent } from './components/powerstats/powerstats.component';
+import { AveragesComponent } from './components/averages/averages.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PowerstatsComponent } from './components/powerstats/powerstats.componen
     CardComponent,
     DetailsComponent,
     SessionComponent,
-    PowerstatsComponent
+    PowerstatsComponent,
+    AveragesComponent
   ],
   imports: [
     BrowserModule,
