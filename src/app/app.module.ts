@@ -12,6 +12,7 @@ import { SearchComponent } from './components/search/search.component';
 import { CardComponent } from './components/card/card.component';
 import { DetailsComponent } from './components/details/details.component';
 import { SessionComponent } from './components/session/session.component';
+import { PowerstatsComponent } from './components/powerstats/powerstats.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SessionComponent } from './components/session/session.component';
     SearchComponent,
     CardComponent,
     DetailsComponent,
-    SessionComponent
+    SessionComponent,
+    PowerstatsComponent
   ],
   imports: [
     BrowserModule,
