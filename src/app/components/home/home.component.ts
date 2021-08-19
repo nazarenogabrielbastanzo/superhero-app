@@ -10,7 +10,6 @@ export class HomeComponent implements OnInit {
 
   goodTeam: any = [];
   badTeam: any = [];
-  // team: any = [this.goodTeam, this.badTeam];
 
   constructor(
     private reqServ: RequestsService
@@ -40,11 +39,4 @@ export class HomeComponent implements OnInit {
         console.log(error);
       });
   }
-
-  // deleteHero(id: number) {
-
-  //   // for (let hero of this.team[0]) {
-  //   //   this.team[0].splice(this.team[0].indexOf(id), 1);
-  //   // }
-  // }
 }
