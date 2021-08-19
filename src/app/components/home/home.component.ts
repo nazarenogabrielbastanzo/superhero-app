@@ -10,10 +10,7 @@ export class HomeComponent implements OnInit {
 
   goodTeam: any = [];
   badTeam: any = [];
-<<<<<<< HEAD
-=======
   team: any = [];
->>>>>>> 19agosto2021
 
   constructor(
     private reqServ: RequestsService
