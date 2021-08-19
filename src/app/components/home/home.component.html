@@ -1,4 +1,5 @@
 <app-session></app-session>
+<app-search [team]="team" [goodTeam]="goodTeam" [badTeam]="badTeam"></app-search>
 <div class="my-5">
   <h2 class="text-center my-5">Super Heroes Team ({{ team.length }} Members)</h2>
   <div class="grid">
@@ -10,8 +11,8 @@
     <app-powerstats [team]="goodTeam"></app-powerstats>
     <hr>
     <div class="grid">
-      <div *ngFor="let goodHero of goodTeam; let i = index" class="grid">
-        <app-card *ngIf="i < 3" [incomingData]="goodHero"></app-card>
+      <div *ngFor="let goodHero of goodTeam" class="grid">
+        <app-card [incomingData]="goodHero"></app-card>
       </div>
     </div>
     <hr>
@@ -26,8 +27,8 @@
     <app-powerstats [team]="badTeam"></app-powerstats>
     <hr>
     <div class="grid">
-      <div *ngFor="let badHero of badTeam; let i = index" class="grid">
-        <app-card *ngIf="i < 3" [incomingData]="badHero"></app-card>
+      <div *ngFor="let badHero of badTeam" class="grid">
+        <app-card [incomingData]="badHero"></app-card>
       </div>
     </div>
   </div>

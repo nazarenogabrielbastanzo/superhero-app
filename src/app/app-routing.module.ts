@@ -12,11 +12,11 @@ const routes: Routes = [
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
-  {
-    path: 'search',
-    component: SearchComponent,
-    canActivate: [AuthGuard]
-  },
+  // {
+  //   path: 'search',
+  //   component: SearchComponent,
+  //   canActivate: [AuthGuard]
+  // },
   {
     path: 'details/:id',
     component: DetailsComponent,
