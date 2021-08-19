@@ -3,6 +3,15 @@
   <h2 class="text-center my-5">Super Heroes Team</h2>
   <h3 class="text-center my-5">Team Members - Alignment: Good</h3>
   <div *ngIf="goodTeam.length">
+    <h4 class="text-center">Powerstats:</h4>
+    <ul class="text-center">
+      <li>Combat: {{ +(goodTeam[0]?.data?.powerstats?.combat) + +(goodTeam[1]?.data?.powerstats?.combat) + +(goodTeam[2]?.data?.powerstats?.combat) }}</li>
+      <li>Durability: {{ +(goodTeam[0]?.data?.powerstats?.durability) + +(goodTeam[1]?.data?.powerstats?.durability) + +(goodTeam[2]?.data?.powerstats?.durability) }}</li>
+      <li>Intelligence: {{ +(goodTeam[0]?.data?.powerstats?.intelligence) + +(goodTeam[1]?.data?.powerstats?.intelligence) + +(goodTeam[2]?.data?.powerstats?.intelligence) }}</li>
+      <li>Power: {{ +(goodTeam[0]?.data?.powerstats?.power) + +(goodTeam[1]?.data?.powerstats?.power) + +(goodTeam[2]?.data?.powerstats?.power) }}</li>
+      <li>Speed: {{ +(goodTeam[0]?.data?.powerstats?.speed) + +(goodTeam[1]?.data?.powerstats?.speed) + +(goodTeam[2]?.data?.powerstats?.speed) }}</li>
+      <li>Strength: {{ +(goodTeam[0]?.data?.powerstats?.strength) + +(goodTeam[1]?.data?.powerstats?.strength) + +(goodTeam[2]?.data?.powerstats?.strength) }}</li>
+    </ul>
     <hr>
     <div class="grid">
       <div *ngFor="let goodHero of goodTeam; let i = index" class="grid">
@@ -18,6 +27,15 @@
   </div>
   <h2 class="text-center my-5">Team Members - Alignment: Bad</h2>
   <div *ngIf="badTeam.length">
+    <h4 class="text-center">Powerstats:</h4>
+    <ul class="text-center">
+      <li>Combat: {{ +(badTeam[0]?.data?.powerstats?.combat) + +(badTeam[1]?.data?.powerstats?.combat) + +(badTeam[2]?.data?.powerstats?.combat) }}</li>
+      <li>Durability: {{ +(badTeam[0]?.data?.powerstats?.durability) + +(badTeam[1]?.data?.powerstats?.durability) + +(badTeam[2]?.data?.powerstats?.durability) }}</li>
+      <li>Intelligence: {{ +(badTeam[0]?.data?.powerstats?.intelligence) + +(badTeam[1]?.data?.powerstats?.intelligence) + +(badTeam[2]?.data?.powerstats?.intelligence) }}</li>
+      <li>Power: {{ +(badTeam[0]?.data?.powerstats?.power) + +(badTeam[1]?.data?.powerstats?.power) + +(badTeam[2]?.data?.powerstats?.power) }}</li>
+      <li>Speed: {{ +(badTeam[0]?.data?.powerstats?.speed) + +(badTeam[1]?.data?.powerstats?.speed) + +(badTeam[2]?.data?.powerstats?.speed) }}</li>
+      <li>Strength: {{ +(badTeam[0]?.data?.powerstats?.strength) + +(badTeam[1]?.data?.powerstats?.strength) + +(badTeam[2]?.data?.powerstats?.strength) }}</li>
+    </ul>
     <hr>
     <div class="grid">
       <div *ngFor="let badHero of badTeam; let i = index" class="grid">
