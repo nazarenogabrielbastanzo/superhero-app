@@ -1,8 +1,10 @@
 <app-session></app-session>
 <div class="my-5">
-  <h2 class="text-center my-5">Super Heroes Team</h2>
-  <h3 class="text-center my-5">Team Members - Alignment: Good</h3>
+  <h2 class="text-center my-5">Super Heroes Team ({{ team.length }} Members)</h2>
+  <app-powerstats [team]="team" *ngIf="team.length"></app-powerstats>
+  <h3 class="text-center my-5">Team Members - Alignment: Good ({{ goodTeam.length }} Members)</h3>
   <div *ngIf="goodTeam.length">
+    <app-powerstats [team]="goodTeam"></app-powerstats>
     <hr>
     <div class="grid">
       <div *ngFor="let goodHero of goodTeam; let i = index" class="grid">
@@ -16,8 +18,9 @@
       No characters in this team.
     </div>
   </div>
-  <h2 class="text-center my-5">Team Members - Alignment: Bad</h2>
+  <h2 class="text-center my-5">Team Members - Alignment: Bad ({{ badTeam.length }} Members)</h2>
   <div *ngIf="badTeam.length">
+    <app-powerstats [team]="badTeam"></app-powerstats>
     <hr>
     <div class="grid">
       <div *ngFor="let badHero of badTeam; let i = index" class="grid">

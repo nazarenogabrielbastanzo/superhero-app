@@ -10,6 +10,10 @@ export class HomeComponent implements OnInit {
 
   goodTeam: any = [];
   badTeam: any = [];
+<<<<<<< HEAD
+=======
+  team: any = [];
+>>>>>>> 19agosto2021
 
   constructor(
     private reqServ: RequestsService
@@ -25,6 +29,7 @@ export class HomeComponent implements OnInit {
 
       if (this.goodTeam.indexOf(data.data) !== -1) this.goodTeam.splice(this.goodTeam.indexOf(data.data), 1);
       if (this.badTeam.indexOf(data.data) !== -1) this.badTeam.splice(this.badTeam.indexOf(data.data), 1);
+      if (this.team.indexOf(data.data) !== -1) this.team.splice(this.team.indexOf(data.data), 1);
     });
   }
 
@@ -32,8 +37,14 @@ export class HomeComponent implements OnInit {
     this.reqServ.getHero(id)
       .then((hero: any) => {
         console.log(hero);
-        if (hero.data.biography.alignment === 'good') this.goodTeam.push(hero);
-        if (hero.data.biography.alignment === 'bad') this.badTeam.push(hero);
+        if (hero.data.biography.alignment === 'good') {
+          this.goodTeam.push(hero);
+          this.team.push(hero);
+        }
+        if (hero.data.biography.alignment === 'bad') {
+          this.badTeam.push(hero);
+          this.team.push(hero);
+        }
       })
       .catch((error: any) => {
         console.log(error);
