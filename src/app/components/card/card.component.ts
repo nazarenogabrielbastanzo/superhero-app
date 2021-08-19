@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RequestsService } from '../../services/requests.service';
 
 @Component({
   selector: 'app-card',
@@ -11,7 +12,8 @@ export class CardComponent implements OnInit {
   @Input() incomingData: any;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private reqServ: RequestsService
   ) { }
 
   ngOnInit(): void {
@@ -22,8 +24,11 @@ export class CardComponent implements OnInit {
     this.router.navigate(['/details', id]);
   }
 
-  deleteHero(id: number) {
-    console.log(id);
+  deleteHero(hero: any) {
+    console.log(hero);
+    this.reqServ.eventTrigger.emit({
+      data: hero
+    });
   }
 
 }

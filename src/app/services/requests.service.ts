@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { environment } from '../../environments/environment';
 import axios from 'axios';
 import { Router } from '@angular/router';
@@ -12,6 +12,8 @@ const TOKEN = 'token';
 export class RequestsService {
 
   private tokenURL = 'http://challenge-react.alkemy.org/';
+
+  @Output() eventTrigger: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private router: Router

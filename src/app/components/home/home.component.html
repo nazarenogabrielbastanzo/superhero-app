@@ -1,19 +1,33 @@
 <app-session></app-session>
-<div class="my-5" *ngIf="goodTeam.length && badTeam.length">
+<div class="my-5">
   <h2 class="text-center my-5">Super Heroes Team</h2>
   <h3 class="text-center my-5">Team Members - Alignment: Good</h3>
-  <hr>
-  <div class="grid">
-    <div *ngFor="let goodHero of goodTeam; let i = index" class="grid">
-      <app-card *ngIf="i < 3" [incomingData]="goodHero"></app-card>
+  <div *ngIf="goodTeam.length">
+    <hr>
+    <div class="grid">
+      <div *ngFor="let goodHero of goodTeam; let i = index" class="grid">
+        <app-card *ngIf="i < 3" [incomingData]="goodHero"></app-card>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div *ngIf="!goodTeam.length">
+    <div class="alert alert-danger" role="alert">
+      No characters in this team.
     </div>
   </div>
-  <hr>
   <h2 class="text-center my-5">Team Members - Alignment: Bad</h2>
-  <hr>
-  <div class="grid">
-    <div *ngFor="let badHero of badTeam; let i = index" class="grid">
-      <app-card *ngIf="i < 3" [incomingData]="badHero"></app-card>
+  <div *ngIf="badTeam.length">
+    <hr>
+    <div class="grid">
+      <div *ngFor="let badHero of badTeam; let i = index" class="grid">
+        <app-card *ngIf="i < 3" [incomingData]="badHero"></app-card>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!badTeam.length">
+    <div class="alert alert-danger" role="alert">
+      No characters in this team.
     </div>
   </div>
 </div>

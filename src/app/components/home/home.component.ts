@@ -10,19 +10,23 @@ export class HomeComponent implements OnInit {
 
   goodTeam: any = [];
   badTeam: any = [];
+  // team: any = [this.goodTeam, this.badTeam];
 
   constructor(
     private reqServ: RequestsService
   ) { }
 
   ngOnInit(): void {
-    for (let i = 1; i <= 731; i++) {
-      if (i <= 6) {
-        this.getHero(i);
-      } else {
-        break;
-      }
+    for (let i = 1; i <= 6; i++) {
+      this.getHero(i);
     }
+
+    this.reqServ.eventTrigger.subscribe((data: any) => {
+      console.log(data.data);
+
+      if (this.goodTeam.indexOf(data.data) !== -1) this.goodTeam.splice(this.goodTeam.indexOf(data.data), 1);
+      if (this.badTeam.indexOf(data.data) !== -1) this.badTeam.splice(this.badTeam.indexOf(data.data), 1);
+    });
   }
 
   getHero(id: number): any {
@@ -36,4 +40,11 @@ export class HomeComponent implements OnInit {
         console.log(error);
       });
   }
+
+  // deleteHero(id: number) {
+
+  //   // for (let hero of this.team[0]) {
+  //   //   this.team[0].splice(this.team[0].indexOf(id), 1);
+  //   // }
+  // }
 }
