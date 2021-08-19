@@ -17,9 +17,9 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    for (let i = 1; i <= 6; i++) {
-      this.getHero(i);
-    }
+    // for (let i = 1; i <= 6; i++) {
+    //   this.getHero(i);
+    // }
 
     this.reqServ.eventTrigger.subscribe((data: any) => {
       console.log(data.data);

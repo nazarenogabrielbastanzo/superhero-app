@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RequestsService } from '../../services/requests.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-search',
@@ -57,9 +58,27 @@ export class SearchComponent implements OnInit {
       .then((response: any) => {
         console.log(response);
 
-        if (response.data.biography.alignment === 'good') this.goodTeam.push(response);
-        if (response.data.biography.alignment === 'bad') this.badTeam.push(response);
-        this.team.push(response);
+        if (response.data.biography.alignment === 'good' && this.goodTeam.length < 3) {
+          this.goodTeam.push(response);
+          this.team.push(response);
+        } else if (response.data.biography.alignment === 'bad' && this.badTeam.length < 3) {
+          this.badTeam.push(response);
+          this.team.push(response);
+        } else if (response.data.biography.alignment === 'neutral') {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Warning!',
+            text: 'Only good and/or bad members are allowed',
+            timer: 5000
+          });
+        } else {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Warning!',
+            text: 'Only 6 members are allowed',
+            timer: 5000
+          });
+        }
       })
       .catch((error: any) => {
         console.log(error);
