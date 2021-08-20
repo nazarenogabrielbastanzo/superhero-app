@@ -8,7 +8,7 @@
   </div>
   <h3 class="text-center my-5">Team Members - Alignment: Good ({{ goodTeam.length }} / 3 Members)</h3>
   <div *ngIf="goodTeam.length">
-    <app-powerstats [team]="goodTeam"></app-powerstats>
+    <!-- <app-powerstats [team]="goodTeam"></app-powerstats> -->
     <hr>
     <div class="grid">
       <div *ngFor="let goodHero of goodTeam" class="grid">
@@ -24,7 +24,7 @@
   </div>
   <h2 class="text-center my-5">Team Members - Alignment: Bad ({{ badTeam.length }} / 3 Members)</h2>
   <div *ngIf="badTeam.length">
-    <app-powerstats [team]="badTeam"></app-powerstats>
+    <!-- <app-powerstats [team]="badTeam"></app-powerstats> -->
     <hr>
     <div class="grid">
       <div *ngFor="let badHero of badTeam" class="grid">

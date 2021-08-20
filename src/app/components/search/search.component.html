@@ -1,35 +1,39 @@
 <div class="my-5">
-  <form>
-      <p>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <form>
+        <p>
           <label
-              for="characterName"
-              class="mx-1"
+            for="characterName"
+            class="mx-1"
           >Character Name:</label>
           <input
-              type="search"
-              name="characterName"
-              placeholder="e.g. Batman ..."
-              #characterName
-              [(ngModel)]="heroName"
-              autocomplete="off"
-              class="mx-1"
+            type="search"
+            name="characterName"
+            placeholder="e.g. Batman ..."
+            #characterName
+            [(ngModel)]="heroName"
+            autocomplete="off"
+            class="mx-1"
           >
           <button
-              (click)="searchCharacter($event, characterName.value); characterName.value = ''"
-              class="btn btn-outline-primary mx-1"
+            (click)="searchCharacter($event, characterName.value); characterName.value = ''"
+            class="btn btn-outline-primary mx-1"
           >Search</button>
           <button
-              (click)="cleanResults()"
-              class="btn btn-outline-danger"
+            (click)="cleanResults()"
+            class="btn btn-outline-danger"
           >Clean</button>
           <span *ngIf="heroName" style="display: block;">
-              Searching <b>{{ heroName }}</b>...
+            Searching <b>{{ heroName }}</b>...
           </span>
           <span *ngIf="errorMessage && !heroName" style="display: block;" class="text-danger">
-              {{ errorMessage }}
+            {{ errorMessage }}
           </span>
-      </p>
-  </form>
+        </p>
+      </form>
+    </div>
+  </div>
   <br>
   <div class="row">
     <div class="col" *ngFor="let result of characterResults">

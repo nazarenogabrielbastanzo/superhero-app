@@ -5,8 +5,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
-  providers: [RequestsService]
+  styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
 
@@ -75,9 +74,18 @@ export class SearchComponent implements OnInit {
           Swal.fire({
             icon: 'warning',
             title: 'Warning!',
-            text: 'Only 6 members are allowed',
+            text: 'Only 3 members per alignment are allowed',
             timer: 5000
           });
+        }
+
+        if (this.team.length === 6) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Team complete',
+            timer: 5000
+          })
         }
       })
       .catch((error: any) => {

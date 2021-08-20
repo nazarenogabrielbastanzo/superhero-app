@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestsService } from '../../services/requests.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,15 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    if (this.email.trim().length === 0 || this.password.trim().length === 0) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Fill in all fields',
+        timer: 5000
+      });
+      return;
+    }
     this.reqServ.login(this.email, this.password);
   }
 

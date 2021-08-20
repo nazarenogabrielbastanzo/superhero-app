@@ -55,7 +55,8 @@ export class RequestsService {
       Swal.fire({
         icon: 'error',
         title: 'Error!',
-        text: 'Unauthorized Access'
+        text: 'Unauthorized Access',
+        timer: 5000
       });
     }
   }

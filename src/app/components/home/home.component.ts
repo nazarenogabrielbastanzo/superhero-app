@@ -21,6 +21,11 @@ export class HomeComponent implements OnInit {
     //   this.getHero(i);
     // }
 
+    if (this.team.length === 6) {
+      console.log('Ok');
+
+    }
+
     this.reqServ.eventTrigger.subscribe((data: any) => {
       console.log(data.data);
 
