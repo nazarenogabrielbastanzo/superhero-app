@@ -28,8 +28,9 @@ export class LoginComponent implements OnInit {
         timer: 5000
       });
       return;
+    } else {
+      this.reqServ.login(this.email, this.password);
     }
-    this.reqServ.login(this.email, this.password);
   }
 
 }
