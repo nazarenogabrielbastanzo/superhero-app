@@ -5,7 +5,7 @@
         <p>
           <label
             for="characterName"
-            class="mx-1"
+            class="mx-1 mb-3"
           >Character Name:</label>
           <input
             type="search"
@@ -14,7 +14,7 @@
             #characterName
             [(ngModel)]="heroName"
             autocomplete="off"
-            class="mx-1"
+            class="form-control mx-1 mb-3"
           >
           <button
             (click)="searchCharacter($event, characterName.value); characterName.value = ''"
@@ -36,11 +36,11 @@
   </div>
   <br>
   <div class="row">
-    <div class="col" *ngFor="let result of characterResults">
+    <div class="col mb-5" *ngFor="let result of characterResults">
       <div class="card" style="width: 18rem;">
         <img [src]="result.image.url" alt="result.name" class="card-img-top">
         <h5 class="card-title">Name: {{ result.name }}</h5>
-        <button type="button" class="btn btn-outline-info" (click)="addCharacter(result)">Add Character</button>
+        <button type="button" class="btn btn-outline-primary" (click)="addCharacter(result)">Add Character</button>
       </div>
     </div>
   </div>

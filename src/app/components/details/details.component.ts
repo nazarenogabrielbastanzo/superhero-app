@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RequestsService } from '../../services/requests.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private reqServ: RequestsService
   ) { }
 
@@ -30,6 +31,8 @@ export class DetailsComponent implements OnInit {
 
   }
 
-
+  goBack() {
+    this.router.navigate(['/home']);
+  }
 
 }
