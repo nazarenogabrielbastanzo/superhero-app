@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
 
     }
 
+    // deleting a hero:
     this.reqServ.eventTrigger.subscribe((data: any) => {
       console.log(data.data);
 

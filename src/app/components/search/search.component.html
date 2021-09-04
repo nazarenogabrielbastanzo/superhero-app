@@ -27,7 +27,7 @@
           <span *ngIf="heroName" style="display: block;">
             Searching <b>{{ heroName }}</b>...
           </span>
-          <span *ngIf="errorMessage && !heroName" style="display: block;" class="text-danger">
+          <span *ngIf="errorMessage" style="display: block;" class="text-danger">
             {{ errorMessage }}
           </span>
         </p>
