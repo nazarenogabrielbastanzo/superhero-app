@@ -20,14 +20,19 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.reqServ.getHero(this.id)
-      .then((hero: any) => {
-        console.log(hero);
-        this.hero = hero;
-      })
-      .catch((error: any) => {
-        console.log(error);
+      .subscribe((resp: any) => {
+        console.log(resp);
 
+        this.hero = resp;
       });
+      // .then((hero: any) => {
+      //   console.log(hero);
+      //   this.hero = hero;
+      // })
+      // .catch((error: any) => {
+      //   console.log(error);
+
+      // });
 
   }
 

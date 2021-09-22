@@ -2,8 +2,8 @@
   <div class="card-body">
     <h4 class="card-title">Averages:</h4>
     <ul>
-      <li><b>Height average (cm):</b> {{ (+((team[0]?.data?.appearance?.height[1]).slice(0, -3)) + +((team[1]?.data?.appearance?.height[1]).slice(0, -3)) + +((team[2]?.data?.appearance?.height[1]).slice(0, -3)) + +((team[3]?.data?.appearance?.height[1]).slice(0, -3)) + +((team[4]?.data?.appearance?.height[1]).slice(0, -3)) + +((team[5]?.data?.appearance?.height[1]).slice(0, -3))) / team.length | number:'.0-0' }}</li>
-      <li><b>Weight average (Kg):</b> {{ (+((team[0]?.data?.appearance?.weight[1]).slice(0, -3)) + +((team[1]?.data?.appearance?.weight[1]).slice(0, -3)) + +((team[2]?.data?.appearance?.weight[1]).slice(0, -3)) + +((team[3]?.data?.appearance?.weight[1]).slice(0, -3)) + +((team[4]?.data?.appearance?.weight[1]).slice(0, -3)) + +((team[5]?.data?.appearance?.weight[1]).slice(0, -3))) / team.length | number:'.0-1'}}</li>
+      <li><b>Height average (cm):</b> {{ (+((team[0]?.appearance?.height[1]).slice(0, -3)) + +((team[1]?.appearance?.height[1]).slice(0, -3)) + +((team[2]?.appearance?.height[1]).slice(0, -3)) + +((team[3]?.appearance?.height[1]).slice(0, -3)) + +((team[4]?.appearance?.height[1]).slice(0, -3)) + +((team[5]?.appearance?.height[1]).slice(0, -3))) / team.length | number:'.0-0' }}</li>
+      <li><b>Weight average (Kg):</b> {{ (+((team[0]?.appearance?.weight[1]).slice(0, -3)) + +((team[1]?.appearance?.weight[1]).slice(0, -3)) + +((team[2]?.appearance?.weight[1]).slice(0, -3)) + +((team[3]?.appearance?.weight[1]).slice(0, -3)) + +((team[4]?.appearance?.weight[1]).slice(0, -3)) + +((team[5]?.appearance?.weight[1]).slice(0, -3))) / team.length | number:'.0-1'}}</li>
     </ul>
   </div>
 </div>

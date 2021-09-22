@@ -38,19 +38,22 @@ export class HomeComponent implements OnInit {
 
   getHero(id: number): any {
     this.reqServ.getHero(id)
-      .then((hero: any) => {
-        console.log(hero);
-        if (hero.data.biography.alignment === 'good') {
-          this.goodTeam.push(hero);
-          this.team.push(hero);
-        }
-        if (hero.data.biography.alignment === 'bad') {
-          this.badTeam.push(hero);
-          this.team.push(hero);
-        }
-      })
-      .catch((error: any) => {
-        console.log(error);
+      .subscribe((resp: any) => {
+        console.log(resp);
       });
+      // .then((hero: any) => {
+      //   console.log(hero);
+      //   if (hero.data.biography.alignment === 'good') {
+      //     this.goodTeam.push(hero);
+      //     this.team.push(hero);
+      //   }
+      //   if (hero.data.biography.alignment === 'bad') {
+      //     this.badTeam.push(hero);
+      //     this.team.push(hero);
+      //   }
+      // })
+      // .catch((error: any) => {
+      //   console.log(error);
+      // });
   }
 }

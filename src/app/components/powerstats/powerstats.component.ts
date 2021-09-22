@@ -12,6 +12,8 @@ export class PowerstatsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.team);
+
   }
 
 }

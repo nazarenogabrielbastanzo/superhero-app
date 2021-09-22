@@ -12,5 +12,7 @@ export class AveragesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.team);
+
   }
 }

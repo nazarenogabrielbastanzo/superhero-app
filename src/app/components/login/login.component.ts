@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestsService } from '../../services/requests.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   password: string = '';
 
   constructor(
-    private reqServ: RequestsService
+    private reqServ: RequestsService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +31,17 @@ export class LoginComponent implements OnInit {
       });
       return;
     } else {
-      this.reqServ.login(this.email, this.password);
+      this.reqServ.login(this.email, this.password)
+        .subscribe((resp: any) => {
+          console.log(resp);
+          localStorage.setItem('token', resp.token);
+          Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Logged In'
+          });
+          this.router.navigate(['/home']);
+        });
     }
   }
 
