@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetailsComponent } from './components/details/details.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { SearchComponent } from './components/search/search.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -12,11 +11,6 @@ const routes: Routes = [
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
-  // {
-  //   path: 'search',
-  //   component: SearchComponent,
-  //   canActivate: [AuthGuard]
-  // },
   {
     path: 'details/:id',
     component: DetailsComponent,
