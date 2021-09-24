@@ -37,11 +37,7 @@ export class DetailsComponent implements OnInit {
   }
 
   goBack() {
-<<<<<<< HEAD:src/app/heroes/pages/details/details.component.ts
-    this.router.navigate(['/heroes/home']);
-=======
     this.router.navigate(['/dashboard']);
->>>>>>> 22sep2021_2:src/app/dashboard/pages/details/details.component.ts
   }
 
 }
