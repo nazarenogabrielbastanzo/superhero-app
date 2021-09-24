@@ -1,0 +1,47 @@
+<div class="my-5">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <form>
+        <p>
+          <label
+            for="characterName"
+            class="mx-1 mb-3"
+          >Character Name:</label>
+          <input
+            type="search"
+            name="characterName"
+            placeholder="e.g. Batman ..."
+            #characterName
+            [(ngModel)]="heroName"
+            autocomplete="off"
+            class="form-control mx-1 mb-3"
+          >
+          <button
+            (click)="searchCharacter($event, characterName.value); characterName.value = ''"
+            class="btn btn-outline-primary mx-1"
+          >Search</button>
+          <button
+            (click)="cleanResults()"
+            class="btn btn-outline-danger"
+          >Clean</button>
+          <span *ngIf="heroName" style="display: block;">
+            Searching <b>{{ heroName }}</b>...
+          </span>
+          <span *ngIf="errorMessage" style="display: block;" class="text-danger">
+            {{ errorMessage }}
+          </span>
+        </p>
+      </form>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col mb-5" *ngFor="let result of characterResults">
+      <div class="card" style="width: 18rem;">
+        <img [src]="result.image.url" alt="result.name" class="card-img-top">
+        <h5 class="card-title">Name: {{ result.name }}</h5>
+        <button type="button" class="btn btn-outline-primary" (click)="addCharacter(result)">Add Character</button>
+      </div>
+    </div>
+  </div>
+</div>

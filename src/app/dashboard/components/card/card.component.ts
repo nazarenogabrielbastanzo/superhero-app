@@ -21,7 +21,11 @@ export class CardComponent implements OnInit {
   }
 
   seeDetails(id: number) {
+<<<<<<< HEAD:src/app/heroes/components/card/card.component.ts
+    this.router.navigate(['/heroes/details', id]);
+=======
     this.router.navigate(['/dashboard/details', id]);
+>>>>>>> 22sep2021_2:src/app/dashboard/components/card/card.component.ts
   }
 
   deleteHero(hero: any) {
