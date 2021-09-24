@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RequestsService } from '../services/requests.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,17 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  email: string = '';
-  password: string = '';
+  myForm = new FormGroup({
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(8)
+    ])
+  });
 
   constructor(
     private reqServ: RequestsService,
@@ -22,27 +32,29 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (this.email.trim().length === 0 || this.password.trim().length === 0) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Fill in all fields',
-        timer: 5000
-      });
-      return;
-    } else {
-      this.reqServ.login(this.email, this.password)
-        .subscribe((resp: any) => {
-          console.log(resp);
-          localStorage.setItem('token', resp.token);
-          Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: 'Logged In'
-          });
-          this.router.navigate(['/dashboard']);
+    this.reqServ.login(this.myForm.value.email, this.myForm.value.password)
+      .subscribe((resp: any) => {
+        console.log(resp);
+        localStorage.setItem('token', resp.token);
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Logged In',
+          timer: 5000
         });
-    }
+        this.router.navigate(['/dashboard']);
+      },
+      (error: any) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: error?.error?.error,
+          timer: 5000
+        });
+        console.log(error?.error?.error);
+
+        this.myForm.reset();
+      });
   }
 
 }

@@ -9,7 +9,7 @@ import { SearchComponent } from './components/search/search.component';
 import { SessionComponent } from './components/session/session.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DetailsComponent } from './pages/details/details.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    FormsModule
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

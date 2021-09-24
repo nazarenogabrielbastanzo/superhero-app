@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RequestsService } from '../../../services/requests.service';
 import Swal from 'sweetalert2';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -10,9 +11,15 @@ import Swal from 'sweetalert2';
 export class SearchComponent implements OnInit {
 
   characterResults: any[] = [];
-  heroName: string = '';
   errorMessage: string = '';
   response: any;
+
+  myForm = new FormGroup({
+    heroName: new FormControl('', [
+      Validators.minLength(4),
+      Validators.required
+    ])
+  });
 
   @Input() team: any;
   @Input() goodTeam: any;
@@ -23,10 +30,10 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  searchCharacter(event: any, characterName: string) {
+  searchCharacter(event: any) {
     event.preventDefault();
     this.characterResults = [];
-    this.reqServ.searchHero(characterName.trim())
+    this.reqServ.searchHero(this.myForm.value.heroName.trim())
       .subscribe((resp: any) => {
         console.log(resp);
 
@@ -55,11 +62,12 @@ export class SearchComponent implements OnInit {
       // .catch((error: any) => {
       //   console.log(error);
       // });
+      this.myForm.reset();
   }
 
   cleanResults() {
     this.characterResults = [];
-    this.heroName = '';
+    this.myForm.reset();
     this.errorMessage = '';
   }
 

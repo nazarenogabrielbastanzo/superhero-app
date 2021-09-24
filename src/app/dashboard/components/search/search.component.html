@@ -1,7 +1,7 @@
 <div class="my-5">
   <div class="row justify-content-center">
     <div class="col-6">
-      <form>
+      <form [formGroup]="myForm">
         <p>
           <label
             for="characterName"
@@ -9,25 +9,24 @@
           >Character Name:</label>
           <input
             type="search"
-            name="characterName"
             placeholder="e.g. Batman ..."
-            #characterName
-            [(ngModel)]="heroName"
+            formControlName="heroName"
             autocomplete="off"
             class="form-control mx-1 mb-3"
           >
           <button
-            (click)="searchCharacter($event, characterName.value); characterName.value = ''"
+            [disabled]="myForm.invalid"
+            (click)="searchCharacter($event)"
             class="btn btn-outline-primary mx-1"
           >Search</button>
           <button
             (click)="cleanResults()"
             class="btn btn-outline-danger"
           >Clean</button>
-          <span *ngIf="heroName" style="display: block;">
-            Searching <b>{{ heroName }}</b>...
+          <span *ngIf="myForm.get('heroName')?.valid" style="display: block;">
+            Searching <b>{{ myForm.get('heroName')?.value }}</b>...
           </span>
-          <span *ngIf="errorMessage" style="display: block;" class="text-danger">
+          <span *ngIf="(myForm.get('heroName')?.touched && myForm.get('heroName')?.invalid) || errorMessage" style="display: block;" class="text-danger">
             {{ errorMessage }}
           </span>
         </p>
