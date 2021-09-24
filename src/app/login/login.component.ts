@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestsService } from '../../services/requests.service';
+import { RequestsService } from '../services/requests.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
             title: 'Success!',
             text: 'Logged In'
           });
-          this.router.navigate(['/home']);
+          this.router.navigate(['/dashboard']);
         });
     }
   }

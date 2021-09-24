@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RequestsService } from '../../services/requests.service';
+import { RequestsService } from '../../../services/requests.service';
 
 @Component({
   selector: 'app-details',
@@ -37,7 +37,7 @@ export class DetailsComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/dashboard']);
   }
 
 }
