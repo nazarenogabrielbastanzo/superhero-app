@@ -94,6 +94,15 @@ export class SearchComponent implements OnInit {
             timer: 5000
           })
         }
+
+        console.log(this.goodTeam);
+        console.log(this.badTeam);
+        console.log(this.team);
+
+        localStorage.setItem('goodTeam', JSON.stringify(this.goodTeam));
+        localStorage.setItem('badTeam', JSON.stringify(this.badTeam));
+        localStorage.setItem('team', JSON.stringify(this.team));
+
       });
 
     this.cleanResults();
