@@ -67,9 +67,11 @@ export class SearchComponent implements OnInit {
         if (resp.biography.alignment === 'good' && this.goodTeam.length < 3) {
           this.goodTeam.push(resp);
           this.team.push(resp);
+          this.confirmAddition(resp.name);
         } else if (resp.biography.alignment === 'bad' && this.badTeam.length < 3) {
           this.badTeam.push(resp);
           this.team.push(resp);
+          this.confirmAddition(resp.name);
         } else if (resp.biography.alignment === 'neutral') {
           Swal.fire({
             icon: 'warning',
@@ -92,7 +94,7 @@ export class SearchComponent implements OnInit {
             title: 'Success!',
             text: 'Team complete',
             timer: 5000
-          })
+          });
         }
 
         console.log(this.goodTeam);
@@ -106,5 +108,14 @@ export class SearchComponent implements OnInit {
       });
 
     this.cleanResults();
+  }
+
+  confirmAddition(name: string): void {
+    Swal.fire({
+      icon: 'success',
+      title: 'Success!',
+      text: `${name} added successfully!`,
+      timer: 5000
+    });
   }
 }
