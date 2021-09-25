@@ -1,11 +1,20 @@
 <app-session></app-session>
+
 <app-search [team]="team" [goodTeam]="goodTeam" [badTeam]="badTeam"></app-search>
+
 <div class="my-5">
   <h2 class="text-center my-5">Super Heroes Team ({{ goodTeam.length + badTeam.length }} / 6 Members)</h2>
-  <div class="grid">
-    <app-powerstats [team]="team" *ngIf="goodTeam.length || badTeam.length"></app-powerstats>
-    <app-averages [team]="team" *ngIf="goodTeam.length || badTeam.length"></app-averages>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="grid">
+          <app-powerstats [team]="team" *ngIf="goodTeam.length || badTeam.length"></app-powerstats>
+          <app-averages [team]="team" *ngIf="goodTeam.length || badTeam.length"></app-averages>
+        </div>
+      </div>
+    </div>
   </div>
+
   <h3 class="text-center my-5">Team Members - Alignment: Good ({{ goodTeam.length }} / 3 Members)</h3>
   <div *ngIf="goodTeam.length">
     <hr>
@@ -21,7 +30,8 @@
       No characters in this team.
     </div>
   </div>
-  <h2 class="text-center my-5">Team Members - Alignment: Bad ({{ badTeam.length }} / 3 Members)</h2>
+
+  <h3 class="text-center my-5">Team Members - Alignment: Bad ({{ badTeam.length }} / 3 Members)</h3>
   <div *ngIf="badTeam.length">
     <hr>
     <div class="grid">
