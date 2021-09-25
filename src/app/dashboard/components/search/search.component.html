@@ -20,6 +20,7 @@
             class="btn btn-outline-primary mx-1"
           >Search</button>
           <button
+            [disabled]="myForm.invalid"
             (click)="cleanResults()"
             class="btn btn-outline-danger"
           >Clean</button>
