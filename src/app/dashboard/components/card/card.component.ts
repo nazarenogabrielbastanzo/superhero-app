@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { RequestsService } from '../../../services/requests.service';
 
 @Component({
@@ -26,9 +27,28 @@ export class CardComponent implements OnInit {
 
   deleteHero(hero: any) {
     console.log(hero);
-    this.reqServ.eventTrigger.emit({
-      data: hero
-    });
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `Sure to eliminate ${hero.name}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          `${hero.name} deleted.`,
+          'success'
+        )
+
+        this.reqServ.eventTrigger.emit({
+          data: hero
+        });
+      }
+    })
   }
 
 }
