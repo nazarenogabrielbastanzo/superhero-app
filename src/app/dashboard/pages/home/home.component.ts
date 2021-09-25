@@ -17,9 +17,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // for (let i = 1; i <= 6; i++) {
-    //   this.getHero(i);
-    // }
 
     if (this.team.length === 6) {
       console.log('Ok');
@@ -41,19 +38,5 @@ export class HomeComponent implements OnInit {
       .subscribe((resp: any) => {
         console.log(resp);
       });
-      // .then((hero: any) => {
-      //   console.log(hero);
-      //   if (hero.data.biography.alignment === 'good') {
-      //     this.goodTeam.push(hero);
-      //     this.team.push(hero);
-      //   }
-      //   if (hero.data.biography.alignment === 'bad') {
-      //     this.badTeam.push(hero);
-      //     this.team.push(hero);
-      //   }
-      // })
-      // .catch((error: any) => {
-      //   console.log(error);
-      // });
   }
 }

@@ -25,14 +25,6 @@ export class DetailsComponent implements OnInit {
 
         this.hero = resp;
       });
-      // .then((hero: any) => {
-      //   console.log(hero);
-      //   this.hero = hero;
-      // })
-      // .catch((error: any) => {
-      //   console.log(error);
-
-      // });
 
   }
 
