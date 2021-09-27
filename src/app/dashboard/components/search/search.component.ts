@@ -60,54 +60,73 @@ export class SearchComponent implements OnInit {
   addCharacter(character: any) {
     console.log(character);
 
-    this.reqServ.getHero(character.id)
-      .subscribe((resp: any) => {
-        console.log(resp);
 
-        if (resp.biography.alignment === 'good' && this.goodTeam.length < 3) {
-          this.goodTeam.push(resp);
-          this.team.push(resp);
-          this.confirmAddition(resp.name);
-        } else if (resp.biography.alignment === 'bad' && this.badTeam.length < 3) {
-          this.badTeam.push(resp);
-          this.team.push(resp);
-          this.confirmAddition(resp.name);
-        } else if (resp.biography.alignment === 'neutral') {
-          Swal.fire({
-            icon: 'warning',
-            title: 'Warning!',
-            text: 'Only good and/or bad members are allowed',
-            timer: 5000
-          });
-        } else {
-          Swal.fire({
-            icon: 'warning',
-            title: 'Warning!',
-            text: 'Only 3 members per alignment are allowed',
-            timer: 5000
-          });
-        }
+      this.reqServ.getHero(character.id)
+        .subscribe((resp: any) => {
+          console.log(resp);
 
-        if (this.team.length === 6) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: 'Team complete',
-            timer: 5000
-          });
-        }
+          if (this.team.length === 0) {
+            // The array is empty:
+            this.checkCharacter(resp);
+          } else if (this.team.find((elem: any) => elem?.id === resp.id)) {
+            // The array is not empty, but a duplicate is detected:
+            Swal.fire({
+              icon: 'warning',
+              title: 'Warning!',
+              text: 'Repeating characters are not allowed',
+              timer: 5000
+            });
+          } else {
+            // The array is not empty, but there are no duplicates:
+            this.checkCharacter(resp);
+          }
+        });
 
-        console.log(this.goodTeam);
-        console.log(this.badTeam);
-        console.log(this.team);
+      this.cleanResults();
+  }
 
-        localStorage.setItem('goodTeam', JSON.stringify(this.goodTeam));
-        localStorage.setItem('badTeam', JSON.stringify(this.badTeam));
-        localStorage.setItem('team', JSON.stringify(this.team));
-
+  checkCharacter(resp: any) {
+    if (resp.biography.alignment === 'good' && this.goodTeam.length < 3) {
+      this.goodTeam.push(resp);
+      this.team.push(resp);
+      this.confirmAddition(resp.name);
+    } else if (resp.biography.alignment === 'bad' && this.badTeam.length < 3) {
+      this.badTeam.push(resp);
+      this.team.push(resp);
+      this.confirmAddition(resp.name);
+    } else if (resp.biography.alignment === 'neutral') {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Warning!',
+        text: 'Only good and/or bad members are allowed',
+        timer: 5000
       });
+    } else {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Warning!',
+        text: 'Only 3 members per alignment are allowed',
+        timer: 5000
+      });
+    }
 
-    this.cleanResults();
+    if (this.team.length === 6) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Team complete',
+        timer: 5000
+      });
+    }
+
+    console.log(this.goodTeam);
+    console.log(this.badTeam);
+    console.log(this.team);
+
+    localStorage.setItem('goodTeam', JSON.stringify(this.goodTeam));
+    localStorage.setItem('badTeam', JSON.stringify(this.badTeam));
+    localStorage.setItem('team', JSON.stringify(this.team));
+
   }
 
   confirmAddition(name: string): void {
