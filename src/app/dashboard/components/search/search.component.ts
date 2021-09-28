@@ -110,11 +110,11 @@ export class SearchComponent implements OnInit {
       });
     }
 
-    if (this.team.length === 6) {
+    if (this.team.length >= 6) {
       Swal.fire({
-        icon: 'success',
-        title: 'Success!',
-        text: 'Team complete',
+        icon: 'info',
+        title: 'Complete',
+        text: 'Team complete!',
         timer: 5000
       });
     }

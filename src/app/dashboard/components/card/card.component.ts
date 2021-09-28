@@ -31,11 +31,11 @@ export class CardComponent implements OnInit {
     Swal.fire({
       title: 'Are you sure?',
       text: `Sure to eliminate ${hero.name}?`,
-      icon: 'warning',
+      icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: `Yes, delete ${hero.name}!`
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
