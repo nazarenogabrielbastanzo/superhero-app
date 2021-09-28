@@ -2,45 +2,40 @@
   <div class="row justify-content-center">
     <div class="col-6">
       <form [formGroup]="myForm">
-        <p>
-          <label
+        <label
             for="characterName"
             class="mx-1 mb-3"
           >Character Name:</label>
+        <div class="input-group mb-3">
           <input
             type="search"
             placeholder="e.g. Batman ..."
             formControlName="heroName"
             autocomplete="off"
-            class="form-control mx-1 mb-3"
+            class="form-control"
           >
           <button
             [disabled]="myForm.invalid"
             (click)="searchCharacter($event)"
-            class="btn btn-outline-primary mx-1"
+            class="btn btn-primary"
           >Search</button>
-          <button
-            [disabled]="myForm.invalid"
-            (click)="cleanResults()"
-            class="btn btn-outline-danger"
-          >Clean</button>
-          <span *ngIf="myForm.get('heroName')?.valid" style="display: block;">
-            Searching <b>{{ myForm.get('heroName')?.value }}</b>...
-          </span>
-          <span *ngIf="(myForm.get('heroName')?.touched && myForm.get('heroName')?.invalid) || errorMessage" style="display: block;" class="text-danger">
-            {{ errorMessage }}
-          </span>
-        </p>
+        </div>
+        <span *ngIf="myForm.get('heroName')?.valid" style="display: block;">
+          Searching <b>{{ myForm.get('heroName')?.value }}</b>...
+        </span>
+        <span *ngIf="(myForm.get('heroName')?.touched && myForm.get('heroName')?.invalid) || errorMessage" style="display: block;" class="text-danger">
+          {{ errorMessage }}
+        </span>
       </form>
     </div>
   </div>
   <br>
   <div class="row">
     <div class="col mb-5" *ngFor="let result of characterResults">
-      <div class="card" style="width: 18rem;">
+      <div class="card p-1" style="width: 18rem;">
         <img [src]="result.image.url" alt="result.name" class="card-img-top">
         <h5 class="card-title">Name: {{ result.name }}</h5>
-        <button type="button" class="btn btn-outline-primary" (click)="addCharacter(result)">Add Character</button>
+        <button type="button" class="btn btn-primary" (click)="addCharacter(result)">Add Character</button>
       </div>
     </div>
   </div>

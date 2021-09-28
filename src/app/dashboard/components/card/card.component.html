@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col">
-    <div class="card" style="width: 18rem;">
+    <div class="card p-1" style="width: 18rem;">
       <img [src]="incomingData.image.url" class="card-img-top" [alt]="incomingData.name">
       <div class="card-body">
         <h5 class="card-title">Name: {{ incomingData.name }}</h5>
@@ -13,8 +13,8 @@
           <li>Speed: {{ incomingData.powerstats.speed }}</li>
           <li>Strength: {{ incomingData.powerstats.strength }}</li>
         </ul>
-        <button class="btn btn-outline-info" (click)="seeDetails(incomingData.id)">Details</button>
-        <button class="btn btn-outline-danger" (click)="deleteHero(incomingData)">Delete Hero</button>
+        <button class="btn btn-primary mx-2" (click)="seeDetails(incomingData.id)">Details</button>
+        <button class="btn btn-danger" (click)="deleteHero(incomingData)">Delete Hero</button>
       </div>
     </div>
   </div>
