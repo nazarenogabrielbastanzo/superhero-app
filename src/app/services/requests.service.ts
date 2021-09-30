@@ -23,15 +23,15 @@ export class RequestsService {
   }
 
   public getHero(characterId: number): Observable<any> {
-    return this.httpClient.get(`/api/${environment.accessToken}/${characterId}`);
+    return this.httpClient.get(`/api/${environment.apiToken}/${characterId}`);
   }
 
   public searchHero(heroName: string): Observable<any> {
-    return this.httpClient.get(`/api/${environment.accessToken}/search/${heroName}`);
+    return this.httpClient.get(`/api/${environment.apiToken}/search/${heroName}`);
   }
 
   public login( userEmail: string, userPassword: string ): Observable<any> {
-    return this.httpClient.post<any>(environment.apiAccessURL, {email: userEmail, password: userPassword}, httpOptions);
+    return this.httpClient.post<any>(environment.accessURL, {email: userEmail, password: userPassword}, httpOptions);
   }
 
   private initializeStorage(): void {
