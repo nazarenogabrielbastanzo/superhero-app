@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { RequestsService } from '../../../services/requests.service';
+import { Hero } from '../../interfaces/hero.interface';
 
 @Component({
   selector: 'app-card',
@@ -10,7 +11,7 @@ import { RequestsService } from '../../../services/requests.service';
 })
 export class CardComponent implements OnInit {
 
-  @Input() incomingData: any;
+  @Input() hero!: Hero;
 
   constructor(
     private router: Router,
@@ -18,14 +19,14 @@ export class CardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.incomingData);
+    console.log(this.hero);
   }
 
   seeDetails(id: number) {
     this.router.navigate(['/dashboard/details', id]);
   }
 
-  deleteHero(hero: any) {
+  deleteHero(hero: Hero) {
     console.log(hero);
 
     Swal.fire({

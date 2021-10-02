@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestsService } from '../../../services/requests.service';
+import { Hero } from '../../interfaces/hero.interface';
 
 @Component({
   selector: 'app-details',
@@ -20,7 +21,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.reqServ.getHero(this.id)
-      .subscribe((resp: any) => {
+      .subscribe((resp: Hero) => {
         console.log(resp);
 
         this.hero = resp;

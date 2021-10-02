@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestsService } from '../../../services/requests.service';
+import { Hero } from '../../interfaces/hero.interface';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,9 @@ import { RequestsService } from '../../../services/requests.service';
 })
 export class HomeComponent implements OnInit {
 
-  goodTeam: any = [];
-  badTeam: any = [];
-  team: any = [];
+  goodTeam: Hero[] = [];
+  badTeam: Hero[] = [];
+  team: Hero[] = [];
 
   constructor(
     private reqServ: RequestsService
@@ -54,12 +55,5 @@ export class HomeComponent implements OnInit {
         localStorage.setItem('badTeam', JSON.stringify(this.badTeam));
       }
     });
-  }
-
-  getHero(id: number): any {
-    this.reqServ.getHero(id)
-      .subscribe((resp: any) => {
-        console.log(resp);
-      });
   }
 }

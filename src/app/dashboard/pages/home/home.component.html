@@ -20,7 +20,7 @@
     <hr>
     <div class="grid">
       <div *ngFor="let goodHero of goodTeam" class="grid">
-        <app-card [incomingData]="goodHero"></app-card>
+        <app-card [hero]="goodHero"></app-card>
       </div>
     </div>
     <hr>
@@ -36,7 +36,7 @@
     <hr>
     <div class="grid">
       <div *ngFor="let badHero of badTeam" class="grid">
-        <app-card [incomingData]="badHero"></app-card>
+        <app-card [hero]="badHero"></app-card>
       </div>
     </div>
   </div>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RequestsService } from '../../../services/requests.service';
 import Swal from 'sweetalert2';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Hero } from '../../interfaces/hero.interface';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
 
-  characterResults: any[] = [];
+  characterResults: Hero[] = [];
   errorMessage: string = '';
   response: any;
 
@@ -57,18 +58,18 @@ export class SearchComponent implements OnInit {
     this.errorMessage = '';
   }
 
-  addCharacter(character: any) {
+  addCharacter(character: Hero) {
     console.log(character);
 
 
       this.reqServ.getHero(character.id)
-        .subscribe((resp: any) => {
+        .subscribe((resp: Hero) => {
           console.log(resp);
 
           if (this.team.length === 0) {
             // The array is empty:
             this.checkCharacter(resp);
-          } else if (this.team.find((elem: any) => elem?.id === resp.id)) {
+          } else if (this.team.find((elem: Hero) => elem?.id === resp.id)) {
             // The array is not empty, but a duplicate is detected:
             Swal.fire({
               icon: 'warning',
@@ -85,7 +86,7 @@ export class SearchComponent implements OnInit {
       this.cleanResults();
   }
 
-  checkCharacter(resp: any) {
+  checkCharacter(resp: Hero) {
     if (resp.biography.alignment === 'good' && this.goodTeam.length < 3) {
       this.goodTeam.push(resp);
       this.team.push(resp);
