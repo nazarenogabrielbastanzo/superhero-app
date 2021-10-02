@@ -21,9 +21,9 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.activatedRoute.paramMap.subscribe((params: any) => {
-      console.log(params);
-      this.id = +(params.params.id);
+    this.activatedRoute.paramMap.subscribe((data: any) => {
+      console.log(data);
+      this.id = +(data.params.id);
     });
 
     this.reqServ.getHero(this.id)
