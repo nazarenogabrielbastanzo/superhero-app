@@ -21,7 +21,8 @@ export class SessionComponent implements OnInit {
     Swal.fire({
       icon: 'success',
       title: 'Success!',
-      text: 'Logged Out'
+      text: 'Logged Out',
+      timer: 3000
     });
   }
 

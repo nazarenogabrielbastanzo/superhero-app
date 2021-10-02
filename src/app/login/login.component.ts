@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           icon: 'success',
           title: 'Success!',
           text: 'Logged In',
-          timer: 5000
+          timer: 3000
         });
         this.router.navigate(['/dashboard']);
       },
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
           icon: 'error',
           title: 'Error!',
           text: error?.error?.error,
-          timer: 5000
+          timer: 3000
         });
         console.log(error?.error?.error);
 

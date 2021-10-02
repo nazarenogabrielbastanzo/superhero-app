@@ -75,7 +75,7 @@ export class SearchComponent implements OnInit {
               icon: 'warning',
               title: 'Warning!',
               text: 'Repeating characters are not allowed',
-              timer: 5000
+              timer: 3000
             });
           } else {
             // The array is not empty, but there are no duplicates:
@@ -100,14 +100,14 @@ export class SearchComponent implements OnInit {
         icon: 'warning',
         title: 'Warning!',
         text: 'Only good and/or bad members are allowed',
-        timer: 5000
+        timer: 3000
       });
     } else {
       Swal.fire({
         icon: 'warning',
         title: 'Warning!',
         text: 'Only 3 members per alignment are allowed',
-        timer: 5000
+        timer: 3000
       });
     }
 
@@ -116,7 +116,7 @@ export class SearchComponent implements OnInit {
         icon: 'info',
         title: 'Complete',
         text: 'Team complete!',
-        timer: 5000
+        timer: 3000
       });
     }
 
@@ -135,7 +135,7 @@ export class SearchComponent implements OnInit {
       icon: 'success',
       title: 'Success!',
       text: `${name} added successfully!`,
-      timer: 5000
+      timer: 3000
     });
   }
 }
