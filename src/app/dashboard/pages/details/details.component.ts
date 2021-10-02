@@ -9,8 +9,9 @@ import { Hero } from '../../interfaces/hero.interface';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  id: any;
-  hero: any;
+
+  id!: number;
+  hero!: Hero;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -19,14 +20,18 @@ export class DetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.activatedRoute.paramMap.subscribe((params: any) => {
+      console.log(params);
+      this.id = +(params.params.id);
+    });
+
     this.reqServ.getHero(this.id)
       .subscribe((resp: Hero) => {
         console.log(resp);
 
         this.hero = resp;
       });
-
   }
 
   goBack() {
